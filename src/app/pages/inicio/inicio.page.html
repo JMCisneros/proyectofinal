@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="success" class="ion-text-capitalize" class="ion-text-center">Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+ 
+
+  <ion-searchbar placeholder="Buscar"
+  inputmode="text"
+  (ionChange)="onSearchChange( $event )"
+  [debounce]="250">
+</ion-searchbar>
+
+
+
+
+
+ 
+  <ion-fab vertical="top" horizontal="end" edge slot="fixed">
+    <ion-fab-button [routerLink]="['/carrito']" routerLinkActive="router-link-active"  #cart>
+      <ion-icon name="cart" class="cart-icon"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-list>
+
+    <ion-card *ngFor="let p of products">
+      <ion-card-header>
+        <ion-card-title color="danger" class="ion-text-center">{{ p.nombre }}</ion-card-title>
+      </ion-card-header>
+      
+        <img src="../../assets/portada/Portada.jpg">
+      <ion-card-content >
+        <h3 class="ion-text-center">� VARIEDAD DE ARTÍCULOS � </h3>
+        <h3 class="ion-text-center">Correo: mundodeventasmary@gmail.com </h3>
+      
+        <ion-row class="ion-align-items-center">
+          <ion-col size="8"><ion-label color="secondary">  <b> {{ p.precio | currency:'USD' }} </b> </ion-label></ion-col>
+          <ion-col sise="3" class="ion-text-right"><ion-button color="success" fill="clear" [routerLink]="['/carrito']" (click)="abrirCarrito()" >
+            <ion-icon name="add"></ion-icon>
+           </ion-button>
+        </ion-col>
+        </ion-row>
+      </ion-card-content> 
+    </ion-card>
+    
+  </ion-list>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Novedades_Mary</ion-title>
+  </ion-toolbar>
+</ion-footer>
